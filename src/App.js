@@ -3,14 +3,12 @@ import { useEffect } from 'react';
 import './App.css'
 import Wordle from './components/Wordle';
 
-const API_URL = "/api/fe/wordle-words"
-
 function App() {
 
-  const [solution, setSolution] = useState('motor')
+  const [solution, setSolution] = useState('')
 
   useEffect(() => {
-    fetch(API_URL)
+    fetch("./api/fe/wordle-words")
       .then(res => res.json())
       .then(json => setSolution(json[Math.floor(Math.random() * json.length)].toLowerCase()))
       .catch(err => console.log(err.message))
