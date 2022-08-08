@@ -8,7 +8,13 @@ function App() {
   const [solution, setSolution] = useState('')
 
   useEffect(() => {
-    fetch("./api/fe/wordle-words")
+    fetch("./api/fe/wordle-words", {
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }
+
+    })
       .then(res => res.json())
       .then(json => setSolution(json[Math.floor(Math.random() * json.length)].toLowerCase()))
       .catch(err => console.log(err.message))
