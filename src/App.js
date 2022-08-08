@@ -16,7 +16,7 @@ function App() {
       .catch(err => console.log(err.message))
   }, [])
 
-  console.log(solution)
+  // console.log(solution)
 
   return (
     <div className="App">
